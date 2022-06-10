@@ -1,0 +1,107 @@
+import { mergeProps as _mergeProps, createVNode as _createVNode } from "vue";
+
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+import { toRefs, computed, reactive } from 'vue';
+export default {
+  name: 'UyIcon',
+  inheritAttrs: false,
+  props: {
+    size: {
+      type: String,
+      default: '24',
+      validator: function validator(s) {
+        return !isNaN(s) || s.length >= 2 && !isNaN(s.slice(0, s.length - 1)) && s.slice(-1) === 'x';
+      }
+    }
+  },
+  functional: true,
+  setup: function setup(props, _ref) {
+    var attributes = _ref.attrs;
+
+    var _toRefs = toRefs(props),
+        propSize = _toRefs.size;
+
+    var size = computed(function () {
+      return propSize.value.slice(-1) === "x" ? propSize.value.slice(0, propSize.value.length - 1) + "em" : parseInt(propSize.value) + "px";
+    });
+    var attrs = reactive(_extends({}, attributes, {
+      width: computed(function () {
+        var _attributes$width;
+
+        return (_attributes$width = attributes.width) != null ? _attributes$width : size.value;
+      }),
+      height: computed(function () {
+        var _attributes$height;
+
+        return (_attributes$height = attributes.height) != null ? _attributes$height : size.value;
+      })
+    }));
+    return function () {
+      return _createVNode("svg", _mergeProps({
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "id": "flag-icons-uy",
+        "viewBox": "0 0 640 480"
+      }, attrs), [_createVNode("path", {
+        "fill": "#fff",
+        "d": "M0 0h640v480H0z"
+      }, null), _createVNode("path", {
+        "fill": "#0038a8",
+        "d": "M266 53.3h374v53.4H266zm0 106.7h374v53.3H266zM0 266.7h640V320H0zm0 106.6h640v53.4H0z"
+      }, null), _createVNode("g", {
+        "fill": "#fcd116",
+        "stroke": "#000",
+        "stroke-miterlimit": "20",
+        "stroke-width": ".6",
+        "transform": "translate(133.3 133.3) scale(2.93333)"
+      }, [_createVNode("g", {
+        "id": "c"
+      }, [_createVNode("g", {
+        "id": "b"
+      }, [_createVNode("g", {
+        "id": "a"
+      }, [_createVNode("path", {
+        "stroke-linecap": "square",
+        "d": "M1.5 9 6 12c-8 13 1 15-6 21 3-7-3-5-3-17",
+        "transform": "rotate(22.5)"
+      }, null), _createVNode("path", {
+        "fill": "none",
+        "d": "M0 11c-2 13 4.5 17 0 22",
+        "transform": "rotate(22.5)"
+      }, null), _createVNode("path", {
+        "d": "M0 0h6L0 33-6 0h6v33"
+      }, null)]), _createVNode("use", {
+        "width": "100%",
+        "height": "100%",
+        "transform": "rotate(45)"
+      }, null)]), _createVNode("use", {
+        "width": "100%",
+        "height": "100%",
+        "transform": "rotate(90)"
+      }, null)]), _createVNode("use", {
+        "width": "100%",
+        "height": "100%",
+        "transform": "scale(-1)"
+      }, null), _createVNode("circle", {
+        "r": "11"
+      }, null)]), _createVNode("g", {
+        "transform": "translate(133.3 133.3) scale(.29333)"
+      }, [_createVNode("g", {
+        "id": "d"
+      }, [_createVNode("path", {
+        "d": "M81-44c-7 8-11-6-36-6S16-35 12-38s21-21 29-22 31 7 40 16m-29 9c7 6 1 19-6 19S26-28 32-36"
+      }, null), _createVNode("path", {
+        "d": "M19-26c1-12 11-14 27-14s23 12 29 15c-7 0-13-10-29-10s-16 0-27 10m3 2c4-6 9 6 20 6s17-3 24-8-10 12-21 12-26-6-23-10"
+      }, null), _createVNode("path", {
+        "d": "M56-17c13-7 5-17 0-19 2 2 10 12 0 19M0 43c6 0 8-2 16-2s27 11 38 7c-23 9-14 3-54 3h-5m63 6c-4-7-3-5-11-16 8 6 10 9 11 16M0 67c25 0 21-5 54-19-24 3-29 11-54 11h-5m5-29c7 0 9-5 17-5s19 3 24 7c1 1-3-8-11-9S25 9 16 7c0 4 3 3 4 9 0 5-9 5-11 0 2 8-4 8-9 8"
+      }, null)]), _createVNode("use", {
+        "width": "100%",
+        "height": "100%",
+        "transform": "scale(-1 1)"
+      }, null), _createVNode("path", {
+        "d": "M0 76c-5 0-18 3 0 3s5-3 0-3"
+      }, null)])]);
+    };
+  }
+};
